@@ -37,4 +37,6 @@
     <string name="no_data">لا توجد بيانات</string>
     <string name="error_occurred">حدث خطأ</string>
     <string name="success">تمت العملية بنجاح</string>
+    <string name="title_activity_register">Register</string>
+    <string name="title_activity_main">Main Activity</string>
 </resources>
