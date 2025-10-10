@@ -47,4 +47,6 @@
 
     <!-- Light blue for admin -->
     <color name="light_blue">#FFE3F2FD</color>
+    <color name="light_yellow">#FFFFCC</color>
+    <color name="light_green">#CCFFCC</color>
 </resources>
