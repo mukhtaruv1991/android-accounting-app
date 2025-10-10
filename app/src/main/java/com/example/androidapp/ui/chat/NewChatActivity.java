@@ -1,9 +1,8 @@
 package com.example.androidapp.ui.chat;
 
-import android.os.Bundle;                                                                       import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidapp.R;
-
-
 
 public class NewChatActivity extends AppCompatActivity {
 
@@ -16,7 +15,8 @@ public class NewChatActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
-                                                                                                    @Override
+
+    @Override
     public boolean onOptionsItemSelected(android.view.MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             finish();

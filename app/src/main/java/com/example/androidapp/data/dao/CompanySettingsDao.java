@@ -1,6 +1,8 @@
 package com.example.androidapp.data.dao;
 
 import androidx.lifecycle.LiveData;
+
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -22,6 +24,8 @@ public interface CompanySettingsDao {
     List<CompanySettings> getAllCompanySettingss();
     @Query("SELECT * FROM company_settings WHERE id = :id LIMIT 1")
     CompanySettings getCompanySettingsById(String id);
+    @Query("SELECT * FROM company_settings WHERE companyId = :companyId LIMIT 1")
+    LiveData<CompanySettings> getSettingsByCompanyId(String companyId);
     @Query("SELECT * FROM company_settings WHERE companyId = :companyId LIMIT 1")
     LiveData<CompanySettings> getSettingsByCompanyId(String companyId);
 }

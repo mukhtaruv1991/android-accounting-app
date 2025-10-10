@@ -5,10 +5,8 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
+
 import java.util.Date;
-
-
-
 
 @Entity(tableName = "company_settings",
         foreignKeys = @ForeignKey(entity = Company.class,
@@ -18,7 +16,8 @@ import java.util.Date;
         indices = {@Index(value = "companyId")})
 public class CompanySettings {
     @PrimaryKey
-    private @NonNull String id;                                                                     private @NonNull String companyId;
+    private @NonNull String id;
+    private @NonNull String companyId;
     private String companyName;
     private String companyAddress;
     private String companyPhone;
@@ -76,7 +75,8 @@ public class CompanySettings {
     public void setCompanyAddress(String companyAddress) {
         this.companyAddress = companyAddress;
     }
-                                                                                                    public void setCompanyPhone(String companyPhone) {
+
+    public void setCompanyPhone(String companyPhone) {
         this.companyPhone = companyPhone;
     }
 

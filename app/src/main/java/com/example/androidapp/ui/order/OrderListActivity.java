@@ -1,6 +1,5 @@
 package com.example.androidapp.ui.order;
 
-import java.util.Date;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,11 +20,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
-
-
 public class OrderListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private GenericAdapter<Order> adapter;                                                          private AppDatabase database;
+    private GenericAdapter<Order> adapter;
+    private AppDatabase database;
     private SessionManager sessionManager;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
     private NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(new Locale("ar", "SA"));
@@ -35,15 +33,17 @@ public class OrderListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_list);
 
-        database = AppDatabase.getDatabase(this);                                                       sessionManager = new SessionManager(this);                                              
+        database = AppDatabase.getDatabase(this);
+        sessionManager = new SessionManager(this);
+
         initViews();
         setupRecyclerView();
         loadOrders();
     }
 
     private void initViews() {
-        recyclerView = // TODO: Fix findViewById;
-        FloatingActionButton fab = // TODO: Fix findViewById;
+        recyclerView = findViewById(R.id.recycler_view);
+        FloatingActionButton fab = findViewById(R.id.fab);
 
         setTitle("إدارة الطلبيات");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -56,30 +56,31 @@ public class OrderListActivity extends AppCompatActivity {
 
     private void setupRecyclerView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        adapter = new GenericAdapter<Object>(new ArrayList<>(), null) {(
+        
+        adapter = new GenericAdapter<>(
                 new ArrayList<>(),
                 R.layout.order_list_row,
                 (order, itemView) -> {
-                    TextView tvOrderId = order.// TODO: Fix findViewById;
-                    TextView tvOrderDate = order.// TODO: Fix findViewById;                               TextView tvTotalAmount = order.// TODO: Fix findViewById;
-                    TextView tvStatus = order.// TODO: Fix findViewById;
-                    TextView tvNotes = order.// TODO: Fix findViewById;
+                    TextView tvOrderId = itemView.findViewById(R.id.tv_order_id);
+                    TextView tvOrderDate = itemView.findViewById(R.id.tv_order_date);
+                    TextView tvTotalAmount = itemView.findViewById(R.id.tv_order_total_amount);
+                    TextView tvStatus = itemView.findViewById(R.id.tv_order_status);
+                    TextView tvNotes = itemView.findViewById(R.id.tv_order_notes);
 
-                    tvOrderId.setText("طلبية #" + itemView.getId());
-                    tvOrderDate.setText("التاريخ: " + dateFormat.format(itemView.getOrderDate()));
-                    tvTotalAmount.setText("المبلغ: " + currencyFormat.format(itemView.getTotalAmount()));
-                    tvStatus.setText(itemView.getStatus());
-
-                    if (itemView.getNotes() != null && !itemView.getNotes().isEmpty()) {
-                        tvNotes.setText(itemView.getNotes());
+                    tvOrderId.setText("طلبية #" + order.getId());
+                    tvOrderDate.setText("التاريخ: " + dateFormat.format(order.getOrderDate()));
+                    tvTotalAmount.setText("المبلغ: " + currencyFormat.format(order.getTotalAmount()));
+                    tvStatus.setText(order.getStatus());
+                    
+                    if (order.getNotes() != null && !order.getNotes().isEmpty()) {
+                        tvNotes.setText(order.getNotes());
                     } else {
                         tvNotes.setText("لا توجد ملاحظات");
                     }
 
                     int statusBackground;
-                    if (itemView.getStatus() != null) {
-                        switch (itemView.getStatus()) {
+                    if (order.getStatus() != null) {
+                        switch (order.getStatus()) {
                             case "Completed":
                                 statusBackground = R.drawable.status_active_background;
                                 break;
@@ -101,7 +102,8 @@ public class OrderListActivity extends AppCompatActivity {
                     intent.putExtra("order_id", order.getId());
                     startActivity(intent);
                 }
-        );                                                                                      
+        );
+        
         recyclerView.setAdapter(adapter);
     }
 
@@ -114,7 +116,8 @@ public class OrderListActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {                                                     getMenuInflater().inflate(R.menu.menu_list, menu);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_list, menu);
         return true;
     }
 

@@ -61,10 +61,10 @@ public class CompanySettingsActivity extends AppCompatActivity {
 
     private void populateSettingsFields(CompanySettings settings) {
         if (settings != null) {
-            companyNameEditText.setText(settings.getCompanyName());
-            companyAddressEditText.setText(settings.getCompanyAddress());
-            companyPhoneEditText.setText(settings.getCompanyPhone());
-            companyEmailEditText.setText(settings.getCompanyEmail());
+            if (settings != null) { companyNameEditText.setText(settings.getCompanyName()); }
+            if (settings != null) { companyAddressEditText.setText(settings.getCompanyAddress()); }
+            if (settings != null) { companyPhoneEditText.setText(settings.getCompanyPhone()); }
+            if (settings != null) { companyEmailEditText.setText(settings.getCompanyEmail()); }
         }
     }
 
