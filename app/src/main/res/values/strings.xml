@@ -1,14 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AndroidApp</string>
-    <string name="title_activity_login">تسجيل الدخول</string>
-    <string name="title_activity_register">التسجيل</string>
-    <string name="prompt_email">البريد الإلكتروني</string>
-    <string name="prompt_password">كلمة المرور</string>
-    <string name="action_sign_in">تسجيل الدخول أو التسجيل</string>
-    <string name="action_sign_in_short">تسجيل الدخول</string>
-    <string name="welcome">"مرحباً بك!"</string>
-    <string name="invalid_username">ليس اسم مستخدم صالح</string>
-    <string name="invalid_password">يجب أن تكون كلمة المرور > 5 أحرف</string>
-    <string name="login_failed">"فشل تسجيل الدخول"</string>
-    <string name="title_activity_main">الرئيسية</string>
+    <string name="app_name">Android Accounting App</string>
+    
+    <!-- نصوص الشاشات الرئيسية -->
+    <string name="welcome">مرحباً بك</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="register">تسجيل جديد</string>
+    <string name="logout">تسجيل الخروج</string>
+    
+    <!-- نصوص الأصناف -->
+    <string name="items">الأصناف</string>
+    <string name="add_item">إضافة صنف</string>
+    <string name="edit_item">تعديل صنف</string>
+    
+    <!-- نصوص العملاء -->
+    <string name="customers">العملاء</string>
+    <string name="add_customer">إضافة عميل</string>
+    <string name="edit_customer">تعديل عميل</string>
+    
+    <!-- نصوص الفواتير -->
+    <string name="invoices">الفواتير</string>
+    <string name="add_invoice">إضافة فاتورة</string>
+    <string name="edit_invoice">تعديل فاتورة</string>
+    
+    <!-- نصوص التقارير -->
+    <string name="reports">التقارير</string>
+    <string name="sales_report">تقرير المبيعات</string>
+    <string name="profit_loss_report">تقرير الأرباح والخسائر</string>
+    
+    <!-- رسائل عامة -->
+    <string name="save">حفظ</string>
+    <string name="delete">حذف</string>
+    <string name="cancel">إلغاء</string>
+    <string name="confirm">تأكيد</string>
+    <string name="loading">جاري التحميل...</string>
+    <string name="no_data">لا توجد بيانات</string>
+    <string name="error_occurred">حدث خطأ</string>
+    <string name="success">تمت العملية بنجاح</string>
 </resources>
